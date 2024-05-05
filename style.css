@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --color-base-white: #fff;
+  --color-base-gray-100: #f5f5f5;
+  --color-base-gray-300: #8d8d99;
+  --color-base-gray-900: #202024;
+  font-family: "Mulish", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  color: var(--color-base-gray-900);
+}
+
+#app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+}
+
+.content {
+  padding: 1.6rem 3.2rem;
+  width: min(
+    112rem,
+    100%
+  ); /* IRÁ CRESCER SOMENTE ATÉ 1200PX, APÓS ISSO IRÁ CENTRALIZAR */
+  margin: 0 auto;
+}
+
+header,
+nav,
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 7.57rem;
+  font-weight: 700;
+}
+
+header ul {
+  list-style: none;
+  font-size: 1.8rem;
+  line-height: 160%;
+  color: var(--color-base-gray-300);
+}
+
+nav ul li.active {
+  color: var(--color-base-gray-900);
+}
+
+header .profile {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 99rem;
+  object-fit: cover;
+}
+
+header form {
+  flex: 1; /* preenche todo o espaço vazio disponivel*/
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+header form input {
+  width: 100%;
+  height: 4.8rem;
+  border-radius: 5px;
+  background-color: #eeeeee;
+  border: 0;
+  padding: 1.6rem;
+}
+
+::-webkit-input-placeholder {
+  font-family: "Mulish";
+  font-weight: 600;
+  color: #3d3d3d;
+  font-size: 1.6rem;
+}
+
+:-moz-placeholder {
+  font-family: "Mulish";
+  /* Firefox 18- */
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #3d3d3d;
+}
+
+::-moz-placeholder {
+  font-family: "Mulish";
+  font-weight: 600;
+  font-size: 1.6rem;
+  /* Firefox 19+ */
+  color: #3d3d3d;
+}
+
+:-ms-input-placeholder {
+  font-family: "Mulish";
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #3d3d3d;
+}
+
+main {
+  overflow: scroll; /* PARA O CONTEUDO ROLAR APENAS DENTRO DO MAIN E NÃO FORA DELE, NÃO AFETANDO O HEADER E NEM FOOTER*/
+  background-color: var(--color-base-gray-100);
+}
+
+main h1 {
+  margin-top: 3.6rem;
+  font-size: 2.4rem;
+  line-height: 160%;
+  font-weight: 700;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem 2rem;
+  margin-top: 3.6rem;
+}
+
+.item {
+  width: 39rem;
+  border-radius: 0 0 0.7rem 0.7rem;
+  background-color: #ffffff;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 0.7rem 0.7rem 0 0;
+  aspect-ratio: 16/9; /* PADRONIZA O FOMRATO DA IMG*/
+  object-fit: cover; /* TIRA O ''ESTICAMENTO'' DA IMG*/
+  filter: grayscale(1); /* DEIXA PRETO E BRANCO A COR DA IMG*/
+}
+
+.item img:hover {
+  filter: hue-rotate(7deg) contrast(101%) saturate(150%); /* COLOCA COR AO COLOCAR O MOUSE EM CIMA*/
+}
+
+.details {
+  padding: 2.3rem;
+  display: grid;
+  grid-template-columns: max-content 15rem;
+  gap: 1.2rem;
+}
+
+.details h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 160%;
+}
+
+.tags {
+  grid-column: 1;
+}
+
+.tags span {
+  background-color: var(--color-base-gray-100);
+  color: var(--color-base-gray-900);
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  line-height: 160%;
+}
+
+footer {
+  text-align: center;
+  padding: 1.6rem;
+
+  font-weight: 600;
+  color: #323238;
+}
+
+@media (max-width: 425px) {
+  header {
+    gap: 5rem;
+  }
+  .input-wrapper,
+  .profile {
+    display: none;
+  }
+  .content {
+    max-width: 32rem;
+    padding: 1.6rem;
+  }
+
+  nav {
+    gap: 5rem;
+  }
+
+  main {
+    margin-bottom: 4rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .item {
+    max-width: 29rem;
+  }
+}
